@@ -38,13 +38,13 @@ export default function IdentityOnboarding() {
   const maxReached = selectedIds.length >= 3;
 
   return (
-    <main className="min-h-screen bg-white p-6">
+    <main className="min-h-screen bg-background text-foreground p-6">
       <div className="max-w-md mx-auto">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">
             Who do you want to be in 2026?
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             Choose up to 3. Fewer works better.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function IdentityOnboarding() {
         <button
           onClick={handleContinue}
           disabled={selectedIds.length === 0}
-          className="w-full p-4 bg-black text-white text-lg font-medium hover:bg-gray-900 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="w-full p-4 bg-primary text-primary-foreground text-lg font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Continue
         </button>

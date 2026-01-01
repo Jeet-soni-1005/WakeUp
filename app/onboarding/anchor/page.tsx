@@ -36,9 +36,10 @@ export default function AnchorOnboarding() {
       const data = getStillData();
       data.identities = data.identities.map((identity) => ({
         ...identity,
-        anchor: anchors[identity.id] === anchorId && identity.id === currentIdentity.id
-          ? anchorId
-          : anchors[identity.id] || '',
+        anchor:
+          anchors[identity.id] === anchorId && identity.id === currentIdentity.id
+            ? anchorId
+            : anchors[identity.id] || '',
       }));
       data.identities[currentIndex].anchor = anchorId;
       setStillData(data);
@@ -51,13 +52,13 @@ export default function AnchorOnboarding() {
   const currentIdentity = identities[currentIndex];
 
   return (
-    <main className="min-h-screen bg-white p-6">
+    <main className="min-h-screen bg-black text-white p-6">
       <div className="max-w-md mx-auto">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">
             When does this happen?
           </h1>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-400 mb-4">
             Attach it to something you already do.
           </p>
           <p className="text-lg font-medium">
@@ -70,7 +71,13 @@ export default function AnchorOnboarding() {
             <button
               key={anchor.id}
               onClick={() => handleSelectAnchor(anchor.id)}
-              className="w-full p-4 border-2 border-black bg-white text-black hover:bg-gray-50 text-left transition-colors"
+              className="
+                w-full p-4 text-left
+                border-2 border-gray-700
+                bg-gray-900 text-white
+                hover:bg-gray-800
+                transition-colors
+              "
             >
               {anchor.label}
             </button>

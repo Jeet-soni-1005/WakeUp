@@ -52,11 +52,11 @@ export default function TodayPage() {
   if (identities.length === 0) return null;
 
   return (
-    <main className="min-h-screen bg-white p-6">
+    <main className="min-h-screen bg-black text-white p-6">
       <div className="max-w-md mx-auto">
         <h1 className="text-4xl font-bold mb-12">TODAY</h1>
 
-        <div>
+        <div className="space-y-3">
           {identities.map((identity) => (
             <ChecklistItem
               key={identity.id}

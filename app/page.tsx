@@ -10,7 +10,6 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
-
     const data = getStillData();
     if (data.identities.length > 0) {
       router.push('/today');
@@ -20,7 +19,7 @@ export default function Home() {
   if (!mounted) return null;
 
   return (
-    <main className="min-h-screen bg-white flex items-center justify-center p-6">
+    <main className="min-h-screen bg-background text-foreground flex items-center justify-center p-6">
       <div className="max-w-md w-full text-center">
         <h1 className="text-5xl font-bold mb-8 leading-tight">
           You don't need more motivation.<br />
@@ -28,7 +27,7 @@ export default function Home() {
         </h1>
         <button
           onClick={() => router.push('/onboarding/identity')}
-          className="w-full p-4 bg-black text-white text-lg font-medium hover:bg-gray-900 transition-colors"
+          className="w-full p-4 bg-primary text-primary-foreground text-lg font-medium hover:opacity-90 transition"
         >
           Start
         </button>

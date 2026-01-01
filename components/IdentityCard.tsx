@@ -17,8 +17,8 @@ export function IdentityCard({ identity, selected, onToggle, disabled }: Identit
       className={`
         w-full p-6 border-2 text-left transition-all
         ${selected
-          ? 'border-black bg-black text-white'
-          : 'border-black bg-white text-black hover:bg-gray-50'
+          ? 'border-green-600 bg-green-600 text-white'
+          : 'border-gray-700 bg-gray-900 text-white hover:bg-gray-800'
         }
         ${disabled && !selected ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}
       `}

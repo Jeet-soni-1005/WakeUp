@@ -44,13 +44,13 @@ export default function ActionOnboarding() {
   if (identities.length === 0) return null;
 
   return (
-    <main className="min-h-screen bg-white p-6">
+    <main className="min-h-screen bg-black text-white p-6">
       <div className="max-w-md mx-auto">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">
             What proves you're a {identities[0]?.label}?
           </h1>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-sm text-gray-400 leading-relaxed">
             Takes 20 minutes or less.<br />
             Can be done every day.<br />
             Binary: done or not done.
@@ -71,7 +71,9 @@ export default function ActionOnboarding() {
         <button
           onClick={handleContinue}
           disabled={!allFilled}
-          className="w-full p-4 bg-black text-white text-lg font-medium hover:bg-gray-900 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="w-full p-4 bg-white text-black text-lg font-medium
+                    hover:bg-gray-200 transition-colors
+                    disabled:bg-gray-700 disabled:text-gray-400 disabled:cursor-not-allowed"
         >
           Continue
         </button>
