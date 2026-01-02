@@ -38,36 +38,45 @@ export default function IdentityOnboarding() {
   const maxReached = selectedIds.length >= 3;
 
   return (
-    <main className="min-h-screen bg-background text-foreground p-6">
-      <div className="max-w-md mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">
+    <main className="min-h-screen p-6 flex items-center">
+      <div className="max-w-2xl mx-auto w-full animate-fadeIn">
+        <div className="mb-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">
             Who do you want to be in 2026?
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-gray-400 text-lg">
             Choose up to 3. Fewer works better.
           </p>
         </div>
 
-        <div className="space-y-3 mb-8">
-          {IDENTITY_OPTIONS.map((identity) => (
-            <IdentityCard
-              key={identity.id}
-              identity={identity}
-              selected={selectedIds.includes(identity.id)}
-              onToggle={handleToggle}
-              disabled={maxReached}
-            />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+          {IDENTITY_OPTIONS.map((identity, index) => (
+            <div key={identity.id} style={{ animationDelay: `${index * 50}ms` }} className="animate-slideInUp">
+              <IdentityCard
+                identity={identity}
+                selected={selectedIds.includes(identity.id)}
+                onToggle={handleToggle}
+                disabled={maxReached}
+              />
+            </div>
           ))}
         </div>
 
-        <button
-          onClick={handleContinue}
-          disabled={selectedIds.length === 0}
-          className="w-full p-4 bg-primary text-primary-foreground text-lg font-medium hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          Continue
-        </button>
+        <div className="flex gap-4">
+          <button
+            onClick={() => router.back()}
+            className="flex-1 px-8 py-3 rounded-lg border border-gray-700 hover:border-gray-600 hover:bg-gray-800/50 text-white font-semibold transition-all duration-300"
+          >
+            Back
+          </button>
+          <button
+            onClick={handleContinue}
+            disabled={selectedIds.length === 0}
+            className="flex-1 px-8 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+          >
+            Continue
+          </button>
+        </div>
       </div>
     </main>
   );

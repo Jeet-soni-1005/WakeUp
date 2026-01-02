@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'STILL',
-  description: 'An identity-based daily action system',
+  title: 'WakeUp',
+  description: 'Stay awake to your goals and resolutions',
 };
 
 export default function RootLayout({
@@ -15,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>{children}</body>
+    <html lang="en">
+      <body className={`${inter.className} bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white`}>
+        {children}
+      </body>
     </html>
   );
 }

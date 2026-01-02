@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -82,7 +77,100 @@ html {
     @apply border-border;
   }
   body {
-    background-color: #000;
-    color: #fff;
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes celebratePopup {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2) translateY(-20px);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1) translateY(-40px);
+    }
+  }
+
+  @keyframes checkBounce {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  .animate-slideInUp {
+    animation: slideInUp 0.5s ease-out;
+  }
+
+  .animate-celebratePopup {
+    animation: celebratePopup 1.5s ease-out forwards;
+  }
+
+  .animate-checkBounce {
+    animation: checkBounce 0.6s ease-out;
+  }
+
+  .animate-slideInLeft {
+    animation: slideInLeft 0.4s ease-out;
   }
 }
