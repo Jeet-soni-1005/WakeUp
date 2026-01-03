@@ -77,9 +77,15 @@ export default function Home() {
       </section>
 
       {/* FOOTER — true bottom */}
-      <footer className="pt-8 text-center text-xs text-gray-500">
-        © Wake Up 2026 · Built to help you show up.
+      <footer className="text-center space-y-2">
+        <p className="text-xs text-gray-500">
+          No signup. No cloud. This stays with you.
+        </p>
+        <p className="text-xs text-gray-600">
+          © Wake Up 2026 · Built to help you show up.
+        </p>
       </footer>
+
 
     </main>
 
