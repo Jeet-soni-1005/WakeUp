@@ -13,6 +13,7 @@ export default function TodayPage() {
   const [completions, setCompletions] = useState<{ [id: string]: boolean }>({});
   const [justCompleted, setJustCompleted] = useState<string | null>(null);
   const [celebrationKey, setCelebrationKey] = useState<string | null>(null);
+  const [showNote, setShowNote] = useState(false);
 
   useEffect(() => {
     const data = getStillData();
@@ -65,6 +66,14 @@ export default function TodayPage() {
   return (
     <main className="min-h-screen p-6 flex flex-col">
       <div className="max-w-2xl mx-auto w-full animate-fadeIn">
+        <div className="flex justify-end mb-4">
+          <button
+            onClick={() => setShowNote(true)}
+            className="text-xs text-gray-400 hover:text-white transition"
+          >
+            A note from the maker
+          </button>
+        </div>
         <h1 className="text-5xl md:text-6xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           TODAY
         </h1>
@@ -106,6 +115,41 @@ export default function TodayPage() {
           </div>
         )}
       </div>
+      {showNote && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6">
+          <div className="max-w-md w-full bg-gray-900 border border-gray-700 rounded-xl p-6 relative">
+            <button
+              onClick={() => setShowNote(false)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-white"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-lg font-semibold mb-4">Why I built this</h2>
+
+            <p className="text-sm text-gray-300 leading-relaxed space-y-3">
+              This app isn’t meant to be flashy or addictive.
+              <br /><br />
+              It’s built around a simple idea from psychology:
+              <strong> you don’t rise to the level of your goals — you fall to the level of your systems.</strong>
+              <br /><br />
+              Instead of motivation, this focuses on identity and showing up every day —
+              even when you don’t feel like it.
+              <br /><br />
+              I’m building this slowly, intentionally, and with care.
+              I’ll keep improving it in ways that actually help you stay consistent —
+              not just feel inspired for a day.
+              <br /><br />
+              Thanks for being here.
+            </p>
+
+            <div className="mt-6 text-xs text-gray-500">
+              — Built by a human, for humans
+            </div>
+          </div>
+        </div>
+      )}
+
     </main>
   );
 }
